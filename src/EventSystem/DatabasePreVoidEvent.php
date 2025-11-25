@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace FA\Events;
+namespace Ksfraser\EventSystem;
 
-use FA\Events\Event;
+use Ksfraser\EventSystem\Event;
 
 /**
  * Database Pre-Void Event

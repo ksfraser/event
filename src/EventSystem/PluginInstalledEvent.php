@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace Ksfraser\EventSystem;
 
-use FA\Events\Event;
+use Ksfraser\EventSystem\Event;
 
 /**
  * Plugin Installed Event
