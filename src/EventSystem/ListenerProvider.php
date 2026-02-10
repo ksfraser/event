@@ -3,7 +3,8 @@ declare(strict_types=1);
 
 namespace Ksfraser\EventSystem;
 
-use FA\Contracts\ExtendedListenerProviderInterface;
+use Ksfraser\EventSystem\Contracts\EventInterface;
+use Ksfraser\EventSystem\Contracts\ExtendedListenerProviderInterface;
 
 /**
  * Listener Provider for managing event listeners
@@ -69,7 +70,7 @@ class ListenerProvider implements ExtendedListenerProviderInterface
      */
     public function getListenersForEvent(object $event): iterable
     {
-        $eventName = $event instanceof \FA\Contracts\EventInterface
+        $eventName = $event instanceof EventInterface
             ? $event->getName()
             : get_class($event);
 

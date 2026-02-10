@@ -1,9 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace FA\Events;
-
-use FA\Events\Event;
+namespace Ksfraser\EventSystem;
 
 /**
  * Custom Field Created Event
@@ -14,24 +12,24 @@ class CustomFieldCreatedEvent extends Event
     private int $fieldId;
     private string $entityType;
     private array $fieldData;
-
+    
     public function __construct(int $fieldId, string $entityType, array $fieldData)
     {
         $this->fieldId = $fieldId;
         $this->entityType = $entityType;
         $this->fieldData = $fieldData;
     }
-
+    
     public function getFieldId(): int
     {
         return $this->fieldId;
     }
-
+    
     public function getEntityType(): string
     {
         return $this->entityType;
     }
-
+    
     public function getFieldData(): array
     {
         return $this->fieldData;

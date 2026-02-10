@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace FA\Contracts;
+namespace Ksfraser\EventSystem\Contracts;
 
 use Psr\EventDispatcher\ListenerProviderInterface;
 

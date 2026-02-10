@@ -1,9 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace FA\Events;
-
-use FA\Events\Event;
+namespace Ksfraser\EventSystem;
 
 /**
  * Custom Field Deleted Event

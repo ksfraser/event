@@ -3,7 +3,8 @@ declare(strict_types=1);
 
 namespace Ksfraser\EventSystem;
 
-use FA\Contracts\ExtendedListenerProviderInterface;
+use Ksfraser\EventSystem\Contracts\EventInterface;
+use Ksfraser\EventSystem\Contracts\ExtendedListenerProviderInterface;
 use Ksfraser\EventSystem\EventDispatcher;
 use Ksfraser\EventSystem\ListenerProvider;
 
@@ -82,9 +83,9 @@ class EventManager
     public function hasListeners(string $eventName): bool
     {
         // Create a dummy event object to check for listeners
-        $dummyEvent = new class implements \FA\Contracts\EventInterface {
+        $dummyEvent = new class ($eventName) implements EventInterface {
             private string $name;
-            public function __construct() { $this->name = ''; }
+            public function __construct(string $name) { $this->name = $name; }
             public function getName(): string { return $this->name; }
             public function isPropagationStopped(): bool { return false; }
             public function stopPropagation(): void {}
@@ -101,9 +102,7 @@ class EventManager
      */
     public function getRegisteredEvents(): array
     {
-        // This method would require extending the interface
-        // For now, return empty array
-        return [];
+        return $this->listenerProvider->getRegisteredEvents();
     }
 
     /**

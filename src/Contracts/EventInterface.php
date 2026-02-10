@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace EventSystem\Contracts;
+namespace Ksfraser\EventSystem\Contracts;
 
 /**
  * PSR-14 Event Interface

@@ -1,9 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace FA\Events;
-
-use FA\Events\Event;
+namespace Ksfraser\EventSystem;
 
 /**
  * Database Post-Write Event
@@ -13,18 +11,18 @@ class DatabasePostWriteEvent extends Event
 {
     private $data;
     private int $transactionType;
-
+    
     public function __construct($data, int $transactionType)
     {
         $this->data = $data;
         $this->transactionType = $transactionType;
     }
-
+    
     public function getData()
     {
         return $this->data;
     }
-
+    
     public function getTransactionType(): int
     {
         return $this->transactionType;

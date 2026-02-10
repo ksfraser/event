@@ -21,7 +21,10 @@
         "psr-4": {
             "Ksfraser\\EventSystem\\": "src/EventSystem/",
             "Ksfraser\\EventSystem\\Contracts\\": "src/Contracts/"
-        }
+        },
+        "classmap": [
+            "src/EventManager.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {
