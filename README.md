@@ -13,14 +13,14 @@ A PSR-14 compliant event system with extended listener management capabilities f
 ## Installation
 
 ```bash
-composer require ksfraser/event-system
+composer require ksfraser/event
 ```
 
 ## Basic Usage
 
 ```php
-use Ksfraser\EventSystem\EventManager;
-use Ksfraser\EventSystem\MyCustomEvent;
+use Ksfraser\Event\EventManager;
+use Ksfraser\Event\MyCustomEvent;
 
 // Dispatch an event
 EventManager::dispatchEvent(new MyCustomEvent($data));
@@ -35,7 +35,7 @@ EventManager::on('user.created', function($event) {
 
 ```php
 <?php
-use Ksfraser\EventSystem\Event;
+use Ksfraser\Event\Event;
 
 class UserCreatedEvent extends Event
 {
@@ -49,7 +49,7 @@ class UserCreatedEvent extends Event
 ## Advanced Listener Management
 
 ```php
-use Ksfraser\EventSystem\EventManager;
+use Ksfraser\Event\EventManager;
 
 // Add multiple listeners
 EventManager::on('order.processed', [$orderService, 'sendConfirmation']);
@@ -73,5 +73,6 @@ $listenerProvider = EventManager::getInstance()->getListenerProvider();
 5. Submit a pull request
 
 ## License
+
 
 This project is licensed under the GPL v3 License.
