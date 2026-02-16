@@ -1,12 +1,12 @@
 <?php
 declare(strict_types=1);
 
-namespace Ksfraser\EventSystem;
+namespace Ksfraser\Event;
 
-use Ksfraser\EventSystem\Contracts\EventInterface;
-use Ksfraser\EventSystem\Contracts\ExtendedListenerProviderInterface;
-use Ksfraser\EventSystem\EventDispatcher;
-use Ksfraser\EventSystem\ListenerProvider;
+use Ksfraser\Event\Contracts\EventInterface;
+use Ksfraser\Event\Contracts\ExtendedListenerProviderInterface;
+use Ksfraser\Event\EventDispatcher;
+use Ksfraser\Event\ListenerProvider;
 
 /**
  * Event Manager Service

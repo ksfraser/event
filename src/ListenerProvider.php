@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace Ksfraser\EventSystem;
+namespace Ksfraser\Event;
 
-use Ksfraser\EventSystem\Contracts\EventInterface;
-use Ksfraser\EventSystem\Contracts\ExtendedListenerProviderInterface;
+use Ksfraser\Event\Contracts\EventInterface;
+use Ksfraser\Event\Contracts\ExtendedListenerProviderInterface;
 
 /**
  * Listener Provider for managing event listeners
@@ -74,15 +74,40 @@ class ListenerProvider implements ExtendedListenerProviderInterface
             ? $event->getName()
             : get_class($event);
 
-        if (!isset($this->listeners[$eventName])) {
-            return [];
+        $relevantListeners = [];
+        
+        // 1. Exact match listeners
+        if (isset($this->listeners[$eventName])) {
+             foreach ($this->listeners[$eventName] as $listenerData) {
+                 $relevantListeners[] = $listenerData;
+             }
         }
 
+        // 2. Single Wildcard (*) listeners
+        if (isset($this->listeners['*'])) {
+             foreach ($this->listeners['*'] as $listenerData) {
+                 $relevantListeners[] = $listenerData;
+             }
+        }
+
+        // 3. Double Wildcard (**) listeners
+        if (isset($this->listeners['**'])) {
+             foreach ($this->listeners['**'] as $listenerData) {
+                 $relevantListeners[] = $listenerData;
+             }
+        }
+
+        // Sort combined list by priority
+        usort($relevantListeners, function($a, $b) {
+            return $b['priority'] <=> $a['priority'];
+        });
+
+        // Return just the callables
         return array_map(
             function($listenerData) {
                 return $listenerData['listener'];
             },
-            $this->listeners[$eventName]
+            $relevantListeners
         );
     }
 

@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Ksfraser\EventSystem;
+namespace Ksfraser\Event;
 
 /**
  * Plugin Installed Event

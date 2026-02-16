@@ -1,13 +1,13 @@
 <?php
 declare(strict_types=1);
 
-namespace Ksfraser\EventSystem;
+namespace Ksfraser\Event;
 
 /**
- * Plugin Deactivated Event
- * Fired when a plugin is successfully deactivated
+ * Plugin Uninstalled Event
+ * Fired when a plugin is successfully uninstalled
  */
-class PluginDeactivatedEvent extends Event
+class PluginUninstalledEvent extends Event
 {
     private string $pluginName;
     private $plugin;

@@ -1,5 +1,5 @@
 {
-    "name": "ksfraser/event-system",
+    "name": "ksfraser/event",
     "description": "PSR-14 compliant event system with extended listener management",
     "type": "library",
     "license": "GPL-3.0",
@@ -19,8 +19,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Ksfraser\\EventSystem\\": "src/EventSystem/",
-            "Ksfraser\\EventSystem\\Contracts\\": "src/Contracts/"
+            "Ksfraser\\Event\\": "src/"
         },
         "classmap": [
             "src/EventManager.php"
